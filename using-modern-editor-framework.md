@@ -40,3 +40,29 @@ approaches exist:
   - ProseMirror: document schema can encode tuple constraints.
   - Lexical: add node transformations to maintain structure.
   - Slate: normalizations repair or complete the expected structure after edits.
+
+## Variant: Using atomic nodes
+
+### General throughts
+
+- Actually this solution is similar to the current Serlo Editor where Slate is
+  used for rich-text. However we replace in this variant the custom core with a
+  modern editor framework so that we reduce maintenance burden and benefit from
+  community-driven improvements.
+
+### Prototype with Lexical
+
+- Repo: https://github.com/elbotho/serlo-editor-lexical
+- Demo: https://serlo-lexical.vercel.app/
+
+#### Advantages
+
+- Solution seems to be scalable to the current Serlo Editor complexity.
+- Selection across a decator node is possible.
+
+#### Limitations
+
+- Selections still are limited. It is hard to create a secltion accross a
+  decorator node. For example, when a selection starts inside a decorator node,
+  the selection is limited to the boundary of the decorator node (like currently
+  with Slate).

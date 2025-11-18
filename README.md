@@ -49,3 +49,14 @@
 - **Rewriting the Existing Architecture:** Keep the core idea of a custom,
   structured JSON-based editor but redesign it with a simplified and easier to
   maintain architecture.
+
+## Using modern editor frameworks
+
+### Overview of modern editor Frameworks
+
+- [Lexical](https://lexical.dev/)
+- [ProseMirror](https://prosemirror.net/)
+  - [Tiptap](https://tiptap.dev/)
+  - [Remirror](https://remirror.io/)
+  - [Prosekit](https://prosekit.com/)
+- [Slate](https://docs.slatejs.org/)

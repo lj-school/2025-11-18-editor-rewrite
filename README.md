@@ -30,3 +30,22 @@
 - Simplify and modernize the underlying architecture to accelerate development.
 - Enable full‑document selection and operations across components.
 - Reduce framework complexity so focus can shift toward improving authoring workflows for educational content.
+
+## Possible Solutions
+
+### Using Modern Editor Frameworks
+
+- Evaluate newer editor frameworks that emerged since the initial development and replace the current editor core with one of them.
+- Reduce long-term maintenance burden and benefit from community-driven improvements.
+
+### Rewriting the Existing Architecture
+
+- Keep the core idea of a custom, structured JSON-based editor but redesign it with a simplified architecture.
+- Introduce a unified selection model that operates across components.
+- Replace complex internal abstractions with clearer, more maintainable primitives.
+- Preserve the ability to build highly specialized components for educational content while improving developer experience.
+
+### Hybrid Option (To Be Explored)
+
+- Combine external rich-text frameworks with a custom structured document layer.
+- Use external tooling for text editing but maintain bespoke logic for structured educational components.

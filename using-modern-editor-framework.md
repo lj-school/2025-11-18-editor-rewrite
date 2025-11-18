@@ -66,3 +66,27 @@ approaches exist:
   decorator node. For example, when a selection starts inside a decorator node,
   the selection is limited to the boundary of the decorator node (like currently
   with Slate).
+
+## Variant: Enforcing structured tuples in the document Model
+
+### Prototype with Lexical
+
+- Repo:
+  https://github.com/kulla/2025-11-08-lexical-with-multiple-choice-exercise
+- Demo:
+  https://kulla.github.io/2025-11-08-lexical-with-multiple-choice-exercise/
+
+#### Findings
+
+- No other way than using node transformations to enforce the structure seems to
+  be possible, see
+  [this discussion](https://github.com/facebook/lexical/discussions/7750)
+
+#### Limitations
+
+- Implementing all necessary normalizations / node transformations is complex,
+  especially for nested structures (see
+  https://github.com/kulla/2025-11-08-lexical-with-multiple-choice-exercise/blob/a265396fc171ecd5078cff2b5a9de9c337df4276/src/plugins/exercise.tsx#L339-L589).
+  Helpers are needed to simplify this task.
+- Uneditable content is hard to implement in Lexical (currently CSS with
+  `:before` and `content: "xyz"` is used as a workaround)

@@ -37,6 +37,8 @@
 - Enable full‑document selection and operations across components.
 - Reduce framework complexity so focus can shift toward improving authoring
   workflows for educational content.
+- Enable advanced features like real‑time collaboration and Google Docs–style
+  comments.
 
 ## Possible Solutions
 

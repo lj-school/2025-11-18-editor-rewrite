@@ -2,10 +2,14 @@
 
 ## Current Status
 
-- [Serlo Editor](https://serlo.org/editor) has been developed over five years as a visual editor for interactive educational content.
-- Supports structured content (e.g., exercises with question + solution, interactive videos) unlike generic rich‑text editors.
-- Combines freeform editing (Google Docs–like) with structured data handling (H5P‑like).
-- Internally flattens JSON and applies lens‑like transformations for efficient updates.
+- [Serlo Editor](https://serlo.org/editor) has been developed over five years as
+  a visual editor for interactive educational content.
+- Supports structured content (e.g., exercises with question + solution,
+  interactive videos) unlike generic rich‑text editors.
+- Combines freeform editing (Google Docs–like) with structured data handling
+  (H5P‑like).
+- Internally flattens JSON and applies lens‑like transformations for efficient
+  updates.
 - Rich‑text functionality inside components is handled through Slate.
 
 ### Deeper dive into the editor
@@ -22,16 +26,24 @@
 
 ### Limitations
 
-- Core architecture is complex and fully custom, making onboarding and iteration slow.
-- No global selection: selection is locked inside contenteditable regions; multi‑element operations are impossible.
+- Core architecture is complex and fully custom, making onboarding and iteration
+  slow.
+- No global selection: selection is locked inside contenteditable regions;
+  multi‑element operations are impossible.
 
 ## Motivation for a Rewrite
 
 - Simplify and modernize the underlying architecture to accelerate development.
 - Enable full‑document selection and operations across components.
-- Reduce framework complexity so focus can shift toward improving authoring workflows for educational content.
+- Reduce framework complexity so focus can shift toward improving authoring
+  workflows for educational content.
 
 ## Possible Solutions
 
-- **Using Modern Editor Frameworks:** Evaluate newer editor frameworks that emerged since the initial development and replace the current editor core with one of them. So we reduce long-term maintenance burden and benefit from community-driven improvements.
-- **Rewriting the Existing Architecture:** Keep the core idea of a custom, structured JSON-based editor but redesign it with a simplified and easier to maintain architecture.
+- **Using Modern Editor Frameworks:** Evaluate newer editor frameworks that
+  emerged since the initial development and replace the current editor core with
+  one of them. So we reduce long-term maintenance burden and benefit from
+  community-driven improvements.
+- **Rewriting the Existing Architecture:** Keep the core idea of a custom,
+  structured JSON-based editor but redesign it with a simplified and easier to
+  maintain architecture.

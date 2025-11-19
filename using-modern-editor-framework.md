@@ -90,3 +90,24 @@ approaches exist:
   Helpers are needed to simplify this task.
 - Uneditable content is hard to implement in Lexical (currently CSS with
   `:before` and `content: "xyz"` is used as a workaround)
+
+### Prototype with Prosekit (Prosemirror based)
+
+In this prototype structured tuples are enforced in the document model / schema
+of Prosemirror.
+
+- Repo:
+  https://github.com/kulla/2025-11-15-prosekit-with-multiple-choice-exercise
+- Demo:
+  https://kulla.github.io/2025-11-15-prosekit-with-multiple-choice-exercise/
+
+#### Advantages
+
+- Compared to Lexical the implementation of the necessary schema constraints and
+  normalizations is simpler.
+
+#### Limitations
+
+- The UX is quite bad when content is copied / pasted. Also many wanted
+  operations (like pressing Enter on multiple choice answers) does not work out
+  of the box.

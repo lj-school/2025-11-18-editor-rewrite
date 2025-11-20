@@ -46,6 +46,6 @@
   Evaluate newer editor frameworks that emerged since the initial development
   and replace the current editor core with one of them. So we reduce long-term
   maintenance burden and benefit from community-driven improvements.
-- **Rewriting the Existing Architecture:** Keep the core idea of a custom,
-  structured JSON-based editor but redesign it with a simplified and easier to
-  maintain architecture.
+- [**Rewriting the Existing Architecture:**](./rewrite-editor-core.md) Keep the
+  core idea of a custom, structured JSON-based editor but redesign it with a
+  simplified and easier to maintain architecture.

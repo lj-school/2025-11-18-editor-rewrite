@@ -18,17 +18,12 @@ For example, the following nested JSON:
 
 ```json
 {
-  "type": "document",
-  "children": [
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "text": "Hello, world!"
-        }
-      ]
-    }
+  "type": "exercise",
+  "exercise": [
+    { "type": "pargaph", "content": "What is the capital of France?" }
+  ],
+  "solution": [
+    { "type": "paragraph", "content": "The capital of France is Paris." }
   ]
 }
 ```
@@ -37,10 +32,11 @@ Would be represented internally as:
 
 ```json
 {
-  "root": "1",
-  "1": ["2"]
-  "2": ["3"]
-  "3": "Hello, world!"
+  "root": { "type": "exercise", "exercise": "1", "solution": "3" },
+  "1": "2",
+  "2": "What is the capital of France?",
+  "3": "4",
+  "4": "The capital of France is Paris."
 }
 ```
 

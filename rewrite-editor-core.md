@@ -10,19 +10,37 @@ in the JSON, much like using functional lenses for direct, targeted edits.
 
 ### Flat internal structure
 
-In order to support transformations deep inside the JSON structure, the internal
-representation of the document should be flat. For example instead of having the
-following JSON as internal state:
+To support efficient transformations deep inside the JSON structure, the
+internal representation of the document is flat. Instead of a nested tree all
+node are stored in a single map.
+
+For example, the following nested JSON:
 
 ```json
-{ "type": "document", children: [{
-  "type": "paragraph",
+{
+  "type": "document",
   "children": [
     {
-      "type": "text",
-      "text": "Hello, world!"
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "text": "Hello, world!"
+        }
+      ]
     }
   ]
+}
+```
+
+Would be represented internally as:
+
+```json
+{
+  "root": "1",
+  "1": ["2"]
+  "2": ["3"]
+  "3": "Hello, world!"
 }
 ```
 

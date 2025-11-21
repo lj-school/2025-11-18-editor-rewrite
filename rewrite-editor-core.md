@@ -5,8 +5,8 @@
 The editor core should be a WYSIWYG editor for JSON structures. Unlike modern
 editor frameworks like Lexical, ProseMirror, or Slate, it also supports plain
 objects with ordered properties (the order of their properties is the order you
-see in the editor). You can intuitively update or change any node
-in the JSON, much like using functional lenses for direct, targeted edits.
+see in the editor). You can intuitively update or change any node in the JSON,
+much like using functional lenses for direct, targeted edits.
 
 ### Flat internal structure
 
@@ -59,6 +59,17 @@ Due to this architectual decision we can distinguish between two types of nodes:
   when saving /loading or when content is copied / pasted).
 - `FlatNodes`: This is the internal representation of the document. A flat node
   has a unique id and can reference other flat nodes by their id.
+
+### Node type model
+
+Before any concrete document structure is created, the editor defines a set of
+node types that describe the possible shapes, properties, and behaviors of
+content elements. These node types act as configurable schemas or classes,
+specifying structure, constraints, and behavior of the corresponding nodes. For
+example there can be a node type describing a multiple choice exercise as an
+object with the properties `question` and `answers" or a node type for boolean
+values. From these definitions, both hierarchical (tree) nodes and flat internal
+nodes can be derived.
 
 ## Collaboration
 

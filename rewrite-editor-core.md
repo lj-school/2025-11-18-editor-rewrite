@@ -40,6 +40,18 @@ Would be represented internally as:
 }
 ```
 
+For example changing the solution inside the JSON tree can be represented as the
+transformation:
+
+```typescript
+{
+  type: "insertText",
+  nodeId: "4",
+  offset: 27,
+  text: " Paris is the city of lights."
+}
+```
+
 ## Collaboration
 
 Collaboration can be either implemented by using operational transformation (OT)

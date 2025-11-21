@@ -1,3 +1,31 @@
+## Main idea
+
+### End goal
+
+The editor core should be A WYSIWYG editor for JSON structures. In comparision
+to modern editor frameworks like Lexical, ProseMirror or Slate also plain
+objects (concrete: plain objects with ordered properties) are supported. The
+editor core supports changing / updating nodes inside the JSON structure – like
+[functional lenses](https://medium.com/@dtipson/functional-lenses-d1aba9e52254)
+
+### Flat internal structure
+
+In order to support transformations deep inside the JSON structure, the internal
+representation of the document should be flat. For example instead of having the
+following JSON as internal state:
+
+```json
+{ "type": "document", children: [{
+  "type": "paragraph",
+  "children": [
+    {
+      "type": "text",
+      "text": "Hello, world!"
+    }
+  ]
+}
+```
+
 ## Collaboration
 
 Collaboration can be either implemented by using operational transformation (OT)

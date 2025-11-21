@@ -52,6 +52,14 @@ transformation:
 }
 ```
 
+Due to this architectual decision we can distinguish between two types of nodes:
+
+- `TreeNodes`: The content is stored in a hierarchy of nodes like JSON – this
+  representation is best for exchanging the content with external systems (like
+  when saving /loading or when content is copied / pasted).
+- `FlatNodes`: This is the internal representation of the document. A flat node
+  has a unique id and can reference other flat nodes by their id.
+
 ## Collaboration
 
 Collaboration can be either implemented by using operational transformation (OT)

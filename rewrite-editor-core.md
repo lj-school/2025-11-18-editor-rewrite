@@ -2,11 +2,11 @@
 
 ### End goal
 
-The editor core should be A WYSIWYG editor for JSON structures. In comparision
-to modern editor frameworks like Lexical, ProseMirror or Slate also plain
-objects (concrete: plain objects with ordered properties) are supported. The
-editor core supports changing / updating nodes inside the JSON structure – like
-[functional lenses](https://medium.com/@dtipson/functional-lenses-d1aba9e52254)
+The editor core should be a WYSIWYG editor for JSON structures. Unlike modern
+editor frameworks like Lexical, ProseMirror, or Slate, it also supports plain
+objects with ordered properties (the order of their properties is the order you
+see in the editor). You can intuitively update or change any node
+in the JSON, much like using functional lenses for direct, targeted edits.
 
 ### Flat internal structure
 

@@ -179,7 +179,7 @@ function merge(
 **_Open question:_** Which style is better suited for extensibility,
 maintainability, and usability of the editor core?
 
-### Notes
+#### Notes
 
 - The FP-style seems to be best for the beginning since in developing the
   prototypes we start with a fixed set of node types but need to add / change

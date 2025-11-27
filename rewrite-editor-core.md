@@ -62,14 +62,39 @@ Due to this architectual decision we can distinguish between two types of nodes:
 
 ### Node type model
 
-Before any concrete document structure is created, the editor defines a set of
-node types that describe the possible shapes, properties, and behaviors of
-content elements. These node types act as configurable schemas or classes,
-specifying structure, constraints, and behavior of the corresponding nodes. For
-example there can be a node type describing a multiple choice exercise as an
-object with the properties `question` and `answers" or a node type for boolean
-values. From these definitions, both hierarchical (tree) nodes and flat internal
-nodes can be derived.
+Each document element belongs to a spefic node type. These node types act as
+configurable schemas or classes, specifying structure, constraints, and behavior
+of the corresponding nodes. For example there can be a node type describing a
+multiple choice exercise as an object with the properties `question` and
+`answers`:
+
+```ts
+const MultipleChoiceNodeType = Schema.object({
+  // Definition of the shape
+  schema: {
+    question: TextContentNodeType,
+    answers: Schema.array({
+      schema: Schema.object({
+        schema: {
+          isCorrect: BooleanNodeType,
+          answer: TextNodeType,
+        },
+        propertyOrder: ['isCorrect', 'answer'],
+      }),
+      minLength: 2
+    }),
+  },
+
+  // Definition of other properties
+  propertyOrder: ["question", "answers"],
+
+  // Optional definition how this element shall be rendered
+  render() { ... }
+})
+```
+
+This is similar how the schema of an document is defined in
+[zod](https://zod.dev/) or [io-ts](https://gcanti.github.io/io-ts/).
 
 ## Open Questions
 

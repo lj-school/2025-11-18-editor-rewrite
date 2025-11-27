@@ -96,6 +96,14 @@ Due to this architectual decision we can distinguish between two types of nodes:
 - `FlatNodes`: This is the internal representation of the document. A flat node
   has a unique id and can reference other flat nodes by their id.
 
+## Learnings
+
+- Node types need to be adressed by a unique name / identifier. This is needed
+  for serialization and deserialization of the document (for example for
+  copy/paste or exchanging new content via CDRT/OT). With a global registry the
+  node type can be looked up by its name.
+  - Idea: Node type name can be calculated automatically (e.g. like a hash tree)
+
 ## Open Questions
 
 ### FP-style or OO-style API

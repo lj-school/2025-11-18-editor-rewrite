@@ -1,0 +1,13 @@
+{
+  "name": "2025-11-18-editor-rewrite",
+  "type": "module",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^3.7.1",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

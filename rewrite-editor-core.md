@@ -8,6 +8,42 @@ objects with ordered properties (the order of their properties is the order you
 see in the editor). You can intuitively update or change any node in the JSON,
 much like using functional lenses for direct, targeted edits.
 
+### Node type model
+
+Each document element belongs to a spefic node type. These node types act as
+configurable schemas or classes, specifying structure, constraints, and behavior
+of the corresponding nodes. For example there can be a node type describing a
+multiple choice exercise as an object with the properties `question` and
+`answers`:
+
+```ts
+const MultipleChoiceNodeType = Schema.object({
+  // Definition of the shape
+  schema: {
+    question: TextContentNodeType,
+    answers: Schema.array({
+      schema: Schema.object({
+        schema: {
+          isCorrect: BooleanNodeType,
+          answer: TextNodeType,
+        },
+        propertyOrder: ['isCorrect', 'answer'],
+      }),
+      minLength: 2
+    }),
+  },
+
+  // Definition of other properties
+  propertyOrder: ["question", "answers"],
+
+  // Optional definition how this element shall be rendered
+  render() { ... }
+})
+```
+
+This is similar how the schema of an document is defined in
+[zod](https://zod.dev/) or [io-ts](https://gcanti.github.io/io-ts/).
+
 ### Flat internal structure
 
 To support efficient transformations deep inside the JSON structure, the
@@ -59,42 +95,6 @@ Due to this architectual decision we can distinguish between two types of nodes:
   when saving /loading or when content is copied / pasted).
 - `FlatNodes`: This is the internal representation of the document. A flat node
   has a unique id and can reference other flat nodes by their id.
-
-### Node type model
-
-Each document element belongs to a spefic node type. These node types act as
-configurable schemas or classes, specifying structure, constraints, and behavior
-of the corresponding nodes. For example there can be a node type describing a
-multiple choice exercise as an object with the properties `question` and
-`answers`:
-
-```ts
-const MultipleChoiceNodeType = Schema.object({
-  // Definition of the shape
-  schema: {
-    question: TextContentNodeType,
-    answers: Schema.array({
-      schema: Schema.object({
-        schema: {
-          isCorrect: BooleanNodeType,
-          answer: TextNodeType,
-        },
-        propertyOrder: ['isCorrect', 'answer'],
-      }),
-      minLength: 2
-    }),
-  },
-
-  // Definition of other properties
-  propertyOrder: ["question", "answers"],
-
-  // Optional definition how this element shall be rendered
-  render() { ... }
-})
-```
-
-This is similar how the schema of an document is defined in
-[zod](https://zod.dev/) or [io-ts](https://gcanti.github.io/io-ts/).
 
 ## Open Questions
 

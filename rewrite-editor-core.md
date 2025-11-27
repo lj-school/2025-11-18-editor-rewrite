@@ -233,6 +233,25 @@ pointing to an another node similar to a node which wraps another node. However
 for the root node some behavior is different (e.g. it cannot be deleted) or
 special.
 
+#### Using configuration objects for node types
+
+Idea:
+
+```typescript
+interface Schema {
+  name: string
+
+  // Typescript only information how the flat / tree node looks like
+  _FlatNode: unknown
+  _JSONValue: unknown
+
+  // optional other information
+  render?: (node: FlatNode) => React.ReactNode
+}
+```
+
+Example pototype implementation: https://github.com/kulla/2025-10-28-editor
+
 ## Collaboration
 
 Collaboration can be either implemented by using operational transformation (OT)
@@ -259,3 +278,7 @@ library support for CRDTs than for OT.
   CRDT might be possible. However, editor bindings for ProseMirror & Co might be
   missing.
 - Libraries seem to be less actively maintained than CRDT libraries.
+
+```
+
+```

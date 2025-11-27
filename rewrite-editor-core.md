@@ -103,6 +103,11 @@ Due to this architectual decision we can distinguish between two types of nodes:
   copy/paste or exchanging new content via CDRT/OT). With a global registry the
   node type can be looked up by its name.
   - Idea: Node type name can be calculated automatically (e.g. like a hash tree)
+- For defining the node structure the schema and not the typename should be used
+  as a generic parameter, i.e. `FlatNode<MultipleChoiceNodeType>` instead of
+  `FlatNode<"MultipleChoice">`. For the later a global registry is needed which
+  is possible but more complex (for example when one needs to describe a
+  FlatNode for an array shaped node type).
 
 ## Open Questions
 

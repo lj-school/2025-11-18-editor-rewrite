@@ -71,6 +71,98 @@ object with the properties `question` and `answers" or a node type for boolean
 values. From these definitions, both hierarchical (tree) nodes and flat internal
 nodes can be derived.
 
+## Open Questions
+
+### FP-style or OO-style API
+
+We have two dimensions in which the framework can grow: On the one hand we have
+different schema types for node classes (e.g. text nodes, array nodes, union
+nodes etc.) and on the other hand we have different operations that can be
+performed on these nodes (e.g. insert text, select end or beginning, split node,
+merge nodes etc.).
+
+We can either have an OO-style in which each node type contains the methods /
+operations for this node type:
+
+```typescript
+interface NodeType {
+  insertText(node: FlatNode, offset: number, text: string): void;
+  merge(node: FlatNode, withNode: TreeNode): void;
+  // ...
+}
+
+// schema/text.ts
+
+const TextNodeType: NodeType = {
+  insertText(node, offset, text) { ... },
+  merge(node, withNode) { ... },
+  // ...
+}
+
+// schema/array.ts
+
+function createArrayNodeType(itemType: NodeType): NodeType {
+  return {
+    insertText(node, offset, text) { ... },
+    merge(node, withNode) { ... },
+    // ...
+  }
+}
+```
+
+Or we can have a FP-style in which the operations are defined as functions that
+take the node type as an argument:
+
+```typescript
+interface NodeType {
+  // schema definition only
+}
+
+interface FlatNode {
+  id: string;
+  type: NodeType;
+  // ...
+}
+
+interface TreeNode {
+  type: NodeType
+  // ...
+}
+
+// operations/text.ts
+
+function insertText(
+  nodeType: NodeType,
+  node: FlatNode,
+  offset: number,
+  text: string
+): void {
+  ...
+}
+
+// operations/merge.ts
+
+function merge(
+  nodeType: NodeType,
+  node: FlatNode,
+  withNode: TreeNode
+): void {
+  ...
+}
+```
+
+**_Open question:_** Which style is better suited for extensibility,
+maintainability, and usability of the editor core?
+
+### Notes
+
+- The FP-style seems to be best for the beginning since in developing the
+  prototypes we start with a fixed set of node types but need to add / change
+  operations frequently.
+- The OO-style might be better for actually developing the editor core since by
+  then the set of operations might be more stable and we can focus on
+  extensibility of node types.
+
 ## Collaboration
 
 Collaboration can be either implemented by using operational transformation (OT)

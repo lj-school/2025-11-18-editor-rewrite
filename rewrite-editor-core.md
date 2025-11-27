@@ -201,6 +201,38 @@ maintainability, and usability of the editor core?
   then the set of operations might be more stable and we can focus on
   extensibility of node types.
 
+### Definition of node types
+
+Currently it is still unclear what the best way is to define a node type.
+Possible ways:
+
+#### Using classes for node types
+
+Idea:
+
+```typescript
+abstract class Node {
+  abstract merge(withNode: Node): void;
+  abstract render(): React.ReactNode;
+  // ...
+}
+
+
+class TextNode extends Node {
+  merge(withNode: Node): void { ... }
+  render(): React.ReactNode { ... }
+  // ...
+}
+```
+
+This was tried for example in
+https://github.com/kulla/2025-08-25-editor-with-classes. However this does not
+seem to be flexible enough since the node behavior cannot be easily described in
+a strictly hierarchical class structure. For example the root node is a node
+pointing to an another node similar to a node which wraps another node. However
+for the root node some behavior is different (e.g. it cannot be deleted) or
+special.
+
 ## Collaboration
 
 Collaboration can be either implemented by using operational transformation (OT)

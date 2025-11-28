@@ -278,7 +278,3 @@ library support for CRDTs than for OT.
   CRDT might be possible. However, editor bindings for ProseMirror & Co might be
   missing.
 - Libraries seem to be less actively maintained than CRDT libraries.
-
-```
-
-```
